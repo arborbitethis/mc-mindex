@@ -1,3 +1,43 @@
+# TODO
+ * Write tests
+
+ * Fix null employee object in Compensation return 
+    * Should compensation object look like this instead?  
+      ```
+          {
+              "employeeId": "some-unique-id",
+              "salary": 75000.0,
+              "effectiveDate": "2023-09-20T00:00:00.000+0000"
+          }
+      ```
+
+# Helpers
+
+* Build and run via Docker
+```
+ docker build -t mc-mindex . 
+```
+
+```
+ docker run -p 8080:8080 mc-mindex
+```
+
+ 
+* Example curl to populate compensation 
+ ```
+    curl -X POST "http://localhost:8080/compensation" \
+     -H "Content-Type: application/json" \
+     -d '{
+         "employee": {
+             "employeeId": "16a596ae-edd3-4847-99fe-c4518e82c86f"
+         },
+         "salary": 75000,
+         "effectiveDate": "2023-09-20T00:00:00Z"
+     }'
+```
+
+
+
 # Coding Challenge
 ## What's Provided
 A simple [Spring Boot](https://projects.spring.io/spring-boot/) web application has been created and bootstrapped 
